@@ -1,6 +1,5 @@
 import os
-from flask import Flask
-import logging
+from flask import Flask, register_blueprint
 
 
 def create_app(test_config=None):
@@ -19,6 +18,12 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    from . import db
+    db.init_app(app)
+
+    from . import auth
+    app.register_blueprint(auth.bp)
 
     # a simple page that says hello
     @app.route('/hello')
