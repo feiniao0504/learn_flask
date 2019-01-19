@@ -1,5 +1,5 @@
 import os
-from flask import Flask, register_blueprint
+from flask import Flask
 
 
 def create_app(test_config=None):
@@ -25,10 +25,7 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        app.logger.info(app.instance_path)
-        return 'Hello, World!'
+    from . import blog
+    app.register_blueprint(blog.bp)
 
     return app
