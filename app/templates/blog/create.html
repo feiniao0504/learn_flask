@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-md-offset-4 col-md-4">
+    <div class="panel panel-default">
+        <legend>&nbsp;<i class="fa fa-comment-o"></i>&nbsp;创建评论</legend>
+        <div class="panel-body">
+            <form method="post" role="form">
+                <div class="form-group">
+                    <label for="title">主题</label>
+                    <input class="form-control" id="title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="body">详细</label>
+                    <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+                </div>
+
+                <button type="submit" class="btn">保存</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
